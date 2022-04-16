@@ -1,0 +1,120 @@
+/* ================ Variables ================ */
+:root {
+	--container-width: 1300px;
+	--default-font-family: Arial, Helvetica, sans-serif;
+	--nav-link-size: 1rem;
+	--text-light: #fff;
+	--text-dark: #4a4d4f;
+	--text-primary: #ca3d26;
+}
+
+/* ================ Resets ================ */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: var(--default-font-family);
+	overflow-x: hidden;
+}
+
+img {
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* ================ Navbar ================ */
+.nav {
+	position: fixed;
+	width: 100vw;
+	z-index: 999;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.nav-inner {
+	position: relative;
+	width: var(--container-width);
+	margin: 0.5rem auto;
+	display: flex;
+	justify-content: space-between;
+	border: 2px solid blue;
+}
+
+.nav-logo {
+	width: 200px;
+}
+
+.nav-items-wrap {
+	display: none;
+}
+
+.nav-item {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+}
+
+.nav-link {
+	padding: 0 1rem;
+	font-size: var(--nav-link-size);
+	text-transform: uppercase;
+	color: var(--text-light);
+	transition: color 0.1s ease-in-out;
+}
+
+.nav-hamburger-wrap {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+}
+
+.nav-hamburger-btn {
+	font-size: 1.5rem;
+	padding: 0.25rem 0.5rem;
+	color: #fff;
+	background-color: transparent;
+	border: 2px solid #fff;
+	outline: none;
+	cursor: pointer;
+}
+
+.nav-link:hover {
+	color: var(--text-primary);
+}
+
+.nav-item-active {
+	border-top: 2px solid var(--text-primary);
+}
+
+/* ================ Header ================ */
+.home-header {
+	margin-bottom: 20rem;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background: url("./img/slide_1.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.home-header::after {
+	z-index: 1;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
