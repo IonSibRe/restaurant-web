@@ -33,11 +33,14 @@ a {
 }
 
 /* ================ Navbar ================ */
+
+/* Desktop */
 .nav {
 	position: fixed;
 	width: 100vw;
-	z-index: 999;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+	z-index: 999;
+	background-color: #2e2e2e;
 }
 
 .nav-inner {
@@ -46,15 +49,14 @@ a {
 	margin: 0.5rem auto;
 	display: flex;
 	justify-content: space-between;
-	border: 2px solid blue;
 }
 
 .nav-logo {
-	width: 200px;
+	width: 175px;
 }
 
 .nav-items-wrap {
-	display: none;
+	display: flex;
 }
 
 .nav-item {
@@ -71,7 +73,16 @@ a {
 	transition: color 0.1s ease-in-out;
 }
 
+.nav-link:hover {
+	color: var(--text-primary);
+}
+
+.nav-item-active {
+	border-top: 2px solid var(--text-primary);
+}
+
 .nav-hamburger-wrap {
+	display: none;
 	position: absolute;
 	top: 50%;
 	right: 0;
@@ -88,12 +99,26 @@ a {
 	cursor: pointer;
 }
 
-.nav-link:hover {
-	color: var(--text-primary);
+/* Mobile */
+.nav-mobile-wrap {
+	height: 0;
+	width: var(--container-width);
+	margin: 0 auto;
+	overflow-y: hidden;
+	transition: all 0.25s ease-in-out;
 }
 
-.nav-item-active {
-	border-top: 2px solid var(--text-primary);
+.nav-mobile-link {
+	display: block;
+	margin-bottom: 1rem;
+	font-size: var(--nav-link-size);
+	color: var(--text-light);
+	text-transform: uppercase;
+	transition: color 0.1s ease-in-out;
+}
+
+.nav-mobile-link:hover {
+	color: var(--text-primary);
 }
 
 /* ================ Header ================ */
@@ -117,4 +142,24 @@ a {
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 1300px) {
+	.nav-inner {
+		width: 95%;
+	}
+
+	.nav-mobile-wrap {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.nav-items-wrap {
+		display: none;
+	}
+
+	.nav-hamburger-wrap {
+		display: block;
+	}
 }
