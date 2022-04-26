@@ -1,3 +1,6 @@
+/* ================ Imports ================ */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap");
+
 /* ================ Variables ================ */
 :root {
 	--container-width: 1300px;
@@ -137,7 +140,6 @@ a {
 	height: 100%;
 	opacity: 0;
 	transition: opacity 0.4s ease-in-out;
-	z-index: 99;
 }
 
 .home-slide::after {
@@ -152,9 +154,11 @@ a {
 
 .home-slide.home-slide-current {
 	opacity: 1;
+	z-index: 999;
 }
 
 .home-slide-content {
+	width: fit-content;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -173,6 +177,7 @@ a {
 .home-slide-content h1 {
 	margin-bottom: 1rem;
 	font-size: 3.5rem;
+	font-family: "Dancing Script", cursive;
 }
 
 .home-slide-content h2 {
@@ -220,18 +225,43 @@ a {
 	color: #333;
 }
 
+.home-slide-dots {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 10px;
+	z-index: 999;
+}
+
+.home-slide-dot {
+	height: 15px;
+	width: 15px;
+	margin-right: 0.5rem;
+	background-color: #333;
+	border: none;
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+}
+
+.home-slide-dot-active {
+	background-color: #fff;
+}
+
 .home-slide:first-child {
 	background: url("./img/slide_1.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
+
 .home-slide:nth-child(2) {
 	background: url("./img/slide_2.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
+
 .home-slide:nth-child(3) {
 	background: url("./img/slide_3.jpg");
 	background-repeat: no-repeat;
@@ -241,6 +271,7 @@ a {
 
 /* ================ Media Queries ================ */
 @media screen and (max-width: 1300px) {
+	/* --------------- Navbar --------------- */
 	.nav-inner {
 		width: 95%;
 	}
@@ -251,11 +282,31 @@ a {
 }
 
 @media screen and (max-width: 768px) {
+	/* --------------- Navbar --------------- */
 	.nav-items-wrap {
 		display: none;
 	}
 
 	.nav-hamburger-wrap {
 		display: block;
+	}
+
+	/* --------------- Slideshow --------------- */
+	.home-slide-content h1 {
+		font-size: 2.5rem;
+	}
+
+	.home-slide-content h2 {
+		font-size: 2.5rem;
+	}
+
+	.home-slide-content a {
+		padding: 0.5rem 1rem;
+		letter-spacing: 5px;
+	}
+
+	.home-slide-btns button {
+		top: auto;
+		bottom: -10px;
 	}
 }

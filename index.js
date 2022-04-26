@@ -6,6 +6,7 @@ const navMobileLinks = document.querySelectorAll(".nav-mobile-link");
 const slides = document.querySelectorAll(".home-slide");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
+const dots = document.querySelectorAll(".home-slide-dot");
 const auto = true; // Auto scroll
 const intervalTime = 5000;
 let slideInterval;
@@ -48,19 +49,66 @@ const prevSlide = () => {
 // Button events
 next.addEventListener("click", () => {
 	nextSlide();
-	if (auto) {
-		clearInterval(slideInterval);
-		slideInterval = setInterval(nextSlide, intervalTime);
-	}
+	addActiveDotClass();
+	resetAutoSlideInterval();
 });
 
 prev.addEventListener("click", () => {
 	prevSlide();
-	if (auto) {
-		clearInterval(slideInterval);
-		slideInterval = setInterval(nextSlide, intervalTime);
-	}
+	addActiveDotClass();
+	resetAutoSlideInterval();
 });
 
+// Dot events
+dots.forEach((dot, index) => {
+	dot.addEventListener("click", () => {
+		// Remove active class for dots and slides
+		dots.forEach((dot) => {
+			if (dot.classList.contains("home-slide-dot-active")) {
+				dot.classList.remove("home-slide-dot-active");
+			}
+		});
+		slides.forEach((slide) => {
+			if (slide.classList.contains("home-slide-current")) {
+				slide.classList.remove("home-slide-current");
+			}
+		});
+
+		// Add active class to dot and slide
+		slides[index].classList.add("home-slide-current");
+		addActiveDotClass();
+
+		resetAutoSlideInterval();
+	});
+});
+
+const addActiveDotClass = () => {
+	dots.forEach((dot) => {
+		if (dot.classList.contains("home-slide-dot-active")) {
+			dot.classList.remove("home-slide-dot-active");
+		}
+	});
+	slides.forEach((slide, index) => {
+		if (slide.classList.contains("home-slide-current")) {
+			dots[index].classList.add("home-slide-dot-active");
+		}
+	});
+};
+
+const resetAutoSlideInterval = () => {
+	if (auto) {
+		clearInterval(slideInterval);
+		slideInterval = setInterval(() => {
+			nextSlide();
+			addActiveDotClass();
+		}, intervalTime);
+	}
+};
+
 // Auto slide
-if (auto) slideInterval = setInterval(nextSlide, intervalTime);
+if (auto) {
+	slideInterval = setInterval(() => {
+		nextSlide();
+		addActiveDotClass();
+	}, intervalTime);
+}
