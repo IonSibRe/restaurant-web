@@ -269,6 +269,51 @@ a {
 	background-size: cover;
 }
 
+/* ================ About Us ================ */
+.home-about-us {
+	width: 100vw;
+	background: url(./img/home_three_about_bg.png);
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.home-about-us-inner-wrap {
+	width: var(--container-width);
+	margin: 0 auto;
+}
+
+.home-about-us-title {
+	font-family: "Dancing Script", cursive;
+	margin: 4rem 0 3rem 0;
+	font-size: 5rem;
+	text-align: center;
+	color: var(--text-primary);
+}
+
+.home-about-us-text-wrap {
+	display: flex;
+}
+
+.home-about-us-text-wrap p {
+	line-height: 25px;
+	word-spacing: 3px;
+	color: var(--text-dark);
+}
+
+.home-about-us-text-wrap p:first-child {
+	margin-right: 2rem;
+}
+
+.home-about-us-img-wrap {
+	margin-top: 3rem;
+	text-align: center;
+}
+
+.home-about-us-img-wrap img {
+	margin-bottom: 4rem;
+	width: 200px;
+}
+
 /* ================ Media Queries ================ */
 @media screen and (max-width: 1300px) {
 	/* --------------- Navbar --------------- */
@@ -277,6 +322,11 @@ a {
 	}
 
 	.nav-mobile-wrap {
+		width: 95%;
+	}
+
+	/* --------------- About Us --------------- */
+	.home-about-us-inner-wrap {
 		width: 95%;
 	}
 }
@@ -308,5 +358,22 @@ a {
 	.home-slide-btns button {
 		top: auto;
 		bottom: -10px;
+	}
+
+	/* --------------- About Us --------------- */
+	.home-about-us-text-wrap {
+		flex-direction: column;
+	}
+
+	.home-about-us-title {
+		font-size: 4rem;
+	}
+
+	.home-about-us-text-wrap {
+		text-align: center;
+	}
+
+	.home-about-us-text-wrap p:first-child {
+		margin: 0 0 1rem 0;
 	}
 }
