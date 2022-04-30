@@ -1,0 +1,32 @@
+{
+	"meal-1": {
+		"id": 1,
+		"name": "Meal 1",
+		"tags": "breakfast,coffee,snack"
+	},
+	"meal-2": {
+		"id": 2,
+		"name": "Meal 2",
+		"tags": "breakfast,coffee"
+	},
+	"meal-3": {
+		"id": 3,
+		"name": "Meal 3",
+		"tags": "lunch,dinner"
+	},
+	"meal-4": {
+		"id": 4,
+		"name": "Meal 4",
+		"tags": "lunch,snack"
+	},
+	"meal-5": {
+		"id": 5,
+		"name": "Meal 5",
+		"tags": "dinner,coffee,snack"
+	},
+	"meal-6": {
+		"id": 6,
+		"name": "Meal 6",
+		"tags": "coffee,dinner"
+	}
+}
